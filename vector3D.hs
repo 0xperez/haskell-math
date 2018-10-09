@@ -98,6 +98,7 @@ themselves (recall that (+), (*) and so on are nothing else than infix functions
         let
             n = norm v
         in
+            Vector (i/n) (j/n) (k/n)
 
 
 --Returns a vector whose components are the direction cosines of the first vector, i.e. the cosines of the angles 
