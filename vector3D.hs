@@ -180,6 +180,24 @@ themselves (recall that (+), (*) and so on are nothing else than infix functions
     standardBasis = [Vector3D 1 0 0, Vector3D 0 1 0, Vector3D 0 0 1]
 
 {--------------------------------------------------------------------------------------------------------------------}
+{-Differential calculus-}
+--Given a function with three variables and a point, computes the gradient of the function in such point. The function is expressed as an
+--Haskell function which takes as an input a triple of doubles and returns a double, and the point is expressed as a Vector3D instance.
+--function computes the gradient of the function in the point given by the vector. This is done by exploiting Newton's difference quotient in the 3-dimensional case.
+--Note that, since we are working with a limit involving h->0, the result is an approximation of such 
+    gradient :: ((Double, Double, Double) -> Double) -> Vector3D -> Vector3D
+    gradient f (Vector3D x y z) =
+            let 
+                h = 0.00001
+                dx = (f (x+h, y, z) - f (x,y,z)) / h
+                dy = (f (x, y+h, z) - f (x,y,z)) / h
+                dz = (f (x, y, z+h) - f (x,y,z)) / h
+            in
+                Vector dx dy dz
+
+
+
+{--------------------------------------------------------------------------------------------------------------------}
 {--Vector generation and conversion --}
 
 --Given a function Double -> Double and a vector, returns a vector whose components are the result of the function
