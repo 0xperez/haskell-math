@@ -92,10 +92,16 @@ themselves (recall that (+), (*) and so on are nothing else than infix functions
             norms = norm a * norm b
         in acos (prod/norms)
 
+--Normalizes a vector, i.e. converts it to a unit vector.
+    normalize :: Vector3D -> Vector3D
+    normalize v@(Vector i j k) =
+        let
+            n = norm v
+        in
+
 
 --Returns a vector whose components are the direction cosines of the first vector, i.e. the cosines of the angles 
 --between the vector and the three coordinate axes. See https://en.wikipedia.org/wiki/Direction_cosine for details.
-
     directionCos :: Vector3D -> Vector3D
     directionCos (Vector3D i j k) =
         Vector3D (cos i) (cos j) (cos k)
