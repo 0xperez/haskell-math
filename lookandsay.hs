@@ -1,11 +1,11 @@
 --This module exports a function to generate a look-and-say sequence.
-module LookAndSay(lookNSay) where
+module LookAndSay(lookAndSay) where
     import Data.List
 
 
 --Generates an infinite look 'n' say sequence.
-    lookNSay :: [Integer]
-    lookNSay = iterate (say) 1
+    lookAndSay :: [Integer]
+    lookAndSay = iterate (say) 1
 
 
 
